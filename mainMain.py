@@ -8,7 +8,7 @@ from sidebarMain import display_sidebar
 from PIL import Image
 from streamlit.components.v1 import html
 
-st.set_page_config(page_title="YeahWrite", layout="wide")
+st.set_page_config(page_title="YeahWrite")
 current_dir = os.path.dirname(os.path.abspath(__file__))
 
 log_dir = 'logs'

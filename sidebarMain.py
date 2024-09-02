@@ -264,15 +264,15 @@ def display_sidebar(username):
     inputs = generate_sidebar_inputs(st.session_state.get('inputs', []), username, '')
     st.session_state['inputs'] = inputs
 
-    redirect_url = "http://139.9.45.75"
+    # redirect_url = "http://139.9.45.75"
     # generate_story_button = st.sidebar.button(f"🚀 确认定制", key="redirect_button")
-    generate_story_button = st.markdown("""
+    st.markdown("""
         <a href="http://139.9.45.75" target="_blank">
        🚀 确认定制
         </a>
         """, unsafe_allow_html=True)
-    if generate_story_button:
-        st.session_state['redirect'] = True
+    # if generate_story_button:
+        # st.session_state['redirect'] = True
     #     st.rerun()
 
     # if st.session_state.get('redirect'):
@@ -280,4 +280,4 @@ def display_sidebar(username):
         # st.markdown(f'<meta http-equiv="refresh" content="0;url={redirect_url}">', unsafe_allow_html=True)
         # st.markdown(f"""<a href={redirect_url} target="_blank"></a>""", unsafe_allow_html=True)
 
-    return inputs, generate_story_button
+    return inputs, True

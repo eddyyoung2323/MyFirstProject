@@ -271,7 +271,7 @@ def display_sidebar(username):
         st.rerun()
 
     if st.session_state.get('redirect'):
-        st.session_state['redirect'] = False
+        # st.session_state['redirect'] = False
         st.markdown(f'<meta http-equiv="refresh" content="0;url={redirect_url}">', unsafe_allow_html=True)
 
     return inputs, generate_story_button

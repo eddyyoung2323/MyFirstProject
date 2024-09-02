@@ -272,6 +272,7 @@ def display_sidebar(username):
 
     if st.session_state.get('redirect'):
         # st.session_state['redirect'] = False
-        st.markdown(f'<meta http-equiv="refresh" content="0;url={redirect_url}">', unsafe_allow_html=True)
+        # st.markdown(f'<meta http-equiv="refresh" content="0;url={redirect_url}">', unsafe_allow_html=True)
+        st.markdown(f"""<a href={redirect_url} target="_blank"></a>""", unsafe_allow_html=True)
 
     return inputs, generate_story_button

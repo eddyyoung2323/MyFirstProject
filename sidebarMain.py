@@ -264,6 +264,8 @@ def display_sidebar(username):
     inputs = generate_sidebar_inputs(st.session_state.get('inputs', []), username, '')
     st.session_state['inputs'] = inputs
 
+    st.experimental_set_query_params(redirect=True)
+    
     redirect_url = "http://139.9.45.75"
     generate_story_button = st.sidebar.button(f"🚀 确认定制", key="redirect_button")
 

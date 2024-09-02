@@ -1,0 +1,155 @@
+/* Hide Streamlit header and footer */
+#MainMenu {visibility: hidden;}
+header {visibility: display;}
+footer {visibility: hidden;}
+
+/* Hide Streamlit Toolbar */
+.stToolbar {
+    display: none;
+}
+
+/* Hide "Made with Streamlit" */
+.reportview-container .main footer {visibility: hidden;}
+
+/* Set background color for the entire page */
+.main {
+    background-color: rgb(255,255,255, 0) !important; 
+}
+/* Style the top header */
+.stApp > header {
+    background-color: rgb(255,255,255, 0) !important; 
+}
+
+div[class*="stButton"] > button {
+    background: rgb(71, 41, 41);
+    color: #ffa6a6;
+    width: 100%;
+}
+
+/* Make sidebar labels certain color */
+[data-testid="stSidebar"] [data-testid="stMarkdownContainer"] p,
+[data-testid="stSidebar"] [data-testid="stMarkdownContainer"] span,
+[data-testid="stSidebar"] [data-testid="stMarkdownContainer"] label,
+[data-testid="stSidebar"] [data-testid="stMarkdownContainer"] div {
+    color: #ccc;
+}
+
+/* Override any potential inline styles */
+[data-testid="stSidebar"] .stButton > button * {
+    color: #ffa6a6 !important;
+}
+
+/* Ensure sidebar content is above the overlay */
+[data-testid="stSidebar"] > div:first-child > div {
+    position: relative;
+    z-index: 2;
+}
+
+/* Custom styles for Streamlit metrics */
+div[data-testid="stMetricValue"] {
+    background-color: #ce9d9d;
+    border: 2px solid #CCCCCC;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+div[data-testid="stMetricLabel"] {
+    color: #000000;
+    font-weight: bold;
+}
+
+div[data-testid="stMetricDelta"] {
+    color: #333333;
+}
+
+/* Main content area background */
+[data-testid="stAppViewContainer"] > .main {
+    background-image: url('/static/images/1.jpg');  /* This will be replaced with base64 */
+    background-size: 150%;
+    background-position: center top;
+    background-repeat: repeat;
+    background-attachment: local;
+    position: float;
+}
+
+/* Overlay for main content area */
+[data-testid="stAppViewContainer"] > .main::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 2000%;
+    background: rgba(255, 242, 222, 0.8);
+    z-index: 1;
+}
+
+/* Ensure main content is above the overlay */
+[data-testid="stAppViewContainer"] > .main > div {
+    position: relative;
+    z-index: 2;
+}
+
+/* Sidebar background */
+[data-testid="stSidebar"] > div:first-child {
+    background-image: url('/static/images/2.jpg');  /* This will be replaced with base64 */
+    background-size: 150%;
+    background-position: center center;
+    background-repeat: repeat;
+    background-attachment: local;
+    position: float;
+}
+
+/* Overlay for sidebar */
+[data-testid="stSidebar"] > div:first-child::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 250%;
+    background: rgba(28, 10, 10, 0.7);
+    z-index: 1;
+}
+
+/* For Story-preview blocks */
+div[data-testid="stExpander"] {
+    background-color: rgba(255, 225, 198, 1) !important;  /* Light blue transparent background */
+    border-radius: 10px !important;
+    margin-bottom: 10px !important;
+    border: none !important;
+    box-shadow: none !important;
+    overflow: hidden !important;
+}
+
+div[data-testid="stExpander"] > div:first-child {
+    background-color: rgba(255, 225, 198, 1)!important;  /* Slightly darker blue for the header */
+    border-radius: 10px 10px 0 0 !important;
+    border-bottom: none !important;
+    padding: 5px 10px !important;
+}
+
+div[data-testid="stExpander"] > div:last-child {
+    background-color: rgba(255, 225, 198, 1) !important;  /* Lighter blue for the content */
+    border-radius: 0 0 10px 10px !important;
+    padding: 10px !important;
+}
+
+div[data-testid="stExpander"] h3 {
+    font-weight: bold !important;
+    color: #333 !important;
+    margin-bottom: 5px !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+}
+
+div[data-testid="stExpander"] p {
+    color: #444 !important;
+    margin: 0 !important;
+}
+
+/* Ensure the expander arrow is visible */
+div[data-testid="stExpander"] svg {
+    color: #333 !important;
+}

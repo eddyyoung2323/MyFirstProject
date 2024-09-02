@@ -274,9 +274,16 @@ def display_sidebar(username):
     if st.session_state.get('redirect'):
         st.session_state['redirect'] = False
         st.markdown(f"""
-            <meta http-equiv="refresh" content="0; url={redirect_url}">
+            <script type="text/javascript">
+                window.location.href = "{redirect_url}";
+            </script>
             如果页面未自动跳转，请点击<a href="{redirect_url}">这里</a>。
             """, unsafe_allow_html=True)
+        
+        # st.markdown(f"""
+        #     <meta http-equiv="refresh" content="0; url={redirect_url}">
+        #     如果页面未自动跳转，请点击<a href="{redirect_url}">这里</a>。
+        #     """, unsafe_allow_html=True)
          # st.markdown(f'<meta http-equiv="refresh" content="0;url={redirect_url}">', unsafe_allow_html=True)
       
     return inputs, generate_story_button

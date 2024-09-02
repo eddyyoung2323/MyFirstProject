@@ -196,12 +196,12 @@ def generate_sidebar_inputs(defaults=None, username=None, auth_token=None):
     return st.session_state['inputs']
     
 def display_sidebar(username):
-    if 'hide_sidebar' not in st.session_state:
-        st.session_state['hide_sidebar'] = False
+    if 'redirect' not in st.session_state:
+        st.session_state['redirect'] = False
     
-    if st.session_state['hide_sidebar']:
-        hide_and_clear_sidebar()
-        return None, None
+    # if st.session_state['hide_sidebar']:
+    #     hide_and_clear_sidebar()
+    #     return None, None
     
     # user_configurations = get_user_configurations(username, '')
     user_configurations = []
@@ -273,17 +273,8 @@ def display_sidebar(username):
 
     if st.session_state.get('redirect'):
         st.session_state['redirect'] = False
-        st.markdown(f"""
-            <script type="text/javascript">
-                window.location.href = "{redirect_url}";
-            </script>
-            如果页面未自动跳转，请点击<a href="{redirect_url}">这里</a>。
-            """, unsafe_allow_html=True)
+        st.markdown(f'<meta http-equiv="refresh" content="0;url={redirect_url}">', unsafe_allow_html=True)
         
-        # st.markdown(f"""
-        #     <meta http-equiv="refresh" content="0; url={redirect_url}">
-        #     如果页面未自动跳转，请点击<a href="{redirect_url}">这里</a>。
-        #     """, unsafe_allow_html=True)
-         # st.markdown(f'<meta http-equiv="refresh" content="0;url={redirect_url}">', unsafe_allow_html=True)
+       
       
     return inputs, generate_story_button

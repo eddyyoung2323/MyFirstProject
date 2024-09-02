@@ -264,20 +264,19 @@ def display_sidebar(username):
     inputs = generate_sidebar_inputs(st.session_state.get('inputs', []), username, '')
     st.session_state['inputs'] = inputs
 
-    # redirect_url = "http://139.9.45.75"
-    # generate_story_button = st.sidebar.button(f"🚀 确认定制", key="redirect_button")
-    st.markdown("""
-        <a href="http://139.9.45.75" target="_blank">
-       🚀 确认定制
-        </a>
-        """, unsafe_allow_html=True)
-    # if generate_story_button:
-        # st.session_state['redirect'] = True
-    #     st.rerun()
+    redirect_url = "http://139.9.45.75"
+    generate_story_button = st.sidebar.button(f"🚀 确认定制", key="redirect_button")
 
-    # if st.session_state.get('redirect'):
-        # st.session_state['redirect'] = False
-        # st.markdown(f'<meta http-equiv="refresh" content="0;url={redirect_url}">', unsafe_allow_html=True)
-        # st.markdown(f"""<a href={redirect_url} target="_blank"></a>""", unsafe_allow_html=True)
+    if generate_story_button:
+        st.session_state['redirect'] = True
+        st.rerun()
 
-    return inputs, True
+    if st.session_state.get('redirect'):
+        st.session_state['redirect'] = False
+        st.markdown(f"""
+            <meta http-equiv="refresh" content="0; url={redirect_url}">
+            如果页面未自动跳转，请点击<a href="{redirect_url}">这里</a>。
+            """, unsafe_allow_html=True)
+         # st.markdown(f'<meta http-equiv="refresh" content="0;url={redirect_url}">', unsafe_allow_html=True)
+      
+    return inputs, generate_story_button

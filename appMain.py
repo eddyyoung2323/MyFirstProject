@@ -73,7 +73,7 @@ def display_logo():
     col1, = st.columns(1)
     
     with col1:
-        logo = Image.open("0.1/static/images/logo.png")
+        logo = Image.open("static/images/logo.png")
         logo = logo.resize((227, 43))
         st.image(logo, use_column_width=False)
         

@@ -274,7 +274,7 @@ def display_sidebar(username):
 
     if st.session_state.get('redirect'):
         st.session_state['redirect'] = False
-        st.sidebar.markdown(f'<meta http-equiv="refresh" content="0;url={redirect_url}">', unsafe_allow_html=True)
+        # st.sidebar.markdown(f'<meta http-equiv="refresh" content="0;url={redirect_url}">', unsafe_allow_html=True)
         st.sidebar.markdown("""<a href="http://139.9.45.75" target="_blank">查看结果</a>""", unsafe_allow_html=True)
         
        
